@@ -1,3 +1,4 @@
+import logging
 from redis import StrictRedis
 
 
@@ -18,18 +19,21 @@ class Config(object):
     # 指定session保存的数据库
     HOST = "127.0.0.1"
     PORT = "6379"
+    # 该数据库为保存session值的
     SESSION_REDIS = StrictRedis(host=HOST, port=PORT)
     # 设置session为需要过期
     SESSION_PERMANATE = False
     # 设置过期时间
-    SESSION_LIFETIME = 86400 * 2
+    PERMANATE_SESSION_LIFETIME = 86400 * 2
+    # 设置log等级
+    LOG_LEVEL=logging.DEBUG
 
 
 class Development(Config):
     DEBUG = True
 
 
-class Product(object):
+class Product(Config):
     DEBUG = False
 
 
