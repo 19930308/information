@@ -12,31 +12,34 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # 设置session保存在redis数据库
-    SESSION_TYPE="redis"
+    SESSION_TYPE = "redis"
     # 开启session签名
-    SESSION_USE_SINGER=True
+    SESSION_USE_SINGER = True
     # 指定session保存的数据库
-    HOST="127.0.0.1"
-    PORT="6379"
-    SESSION_REDIS=StrictRedis(host=HOST,port=PORT)
+    HOST = "127.0.0.1"
+    PORT = "6379"
+    SESSION_REDIS = StrictRedis(host=HOST, port=PORT)
     # 设置session为需要过期
-    SESSION_PERMANATE=False
+    SESSION_PERMANATE = False
     # 设置过期时间
-    SESSION_LIFETIME=86400*2
+    SESSION_LIFETIME = 86400 * 2
+
 
 class Development(Config):
     DEBUG = True
 
 
 class Product(object):
-    DEBUG=False
+    DEBUG = False
+
 
 class Test(Config):
-    DEBUG=True
-    TESTTING=True
+    DEBUG = True
+    TESTTING = True
 
-config={
-    "development":Development,
-    "product":Product,
-    "test":Test
+
+config = {
+    "development": Development,
+    "product": Product,
+    "test": Test
 }
