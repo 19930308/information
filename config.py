@@ -9,7 +9,7 @@ class Config(object):
     SECRET_KEY = "JF0dbTOmNuIiP7L0SJxdpHi7YB1Dr7mU2AshyKt9tGFzfSiXNva6DOhu237ZxxGX"
 
     # 连接mysql数据库
-    SQLALCHEMY_DATABASE_URI = "mysql://root:mysql@127.0.0.1:6379/news"
+    SQLALCHEMY_DATABASE_URI = "mysql://root:mysql@127.0.0.1:3306/news"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # 设置session保存在redis数据库
