@@ -1,6 +1,5 @@
 import logging
 from logging.handlers import RotatingFileHandler
-
 from flask import Flask
 from flask.ext.session import Session
 from flask.ext.wtf import CSRFProtect
@@ -9,6 +8,7 @@ from redis import StrictRedis
 from config import config
 
 # 初始化mysql数据库
+
 db = SQLAlchemy()
 redis_store = None
 
@@ -43,4 +43,7 @@ def create_app(config_name):
     CSRFProtect(app)
     # 设置session保存位置
     Session(app)
+    # 注册蓝图
+    from info.modules.index import index_blue
+    app.register_blueprint(index_blue)
     return app
