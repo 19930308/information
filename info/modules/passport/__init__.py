@@ -1,5 +1,6 @@
 # 注册
 from flask import Blueprint
-passport_blue=Blueprint('passport',__name__)
 
-from .views import *
+passport_blue = Blueprint('passport', __name__, url_prefix='/passport')
+
+from  . import views

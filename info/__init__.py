@@ -26,6 +26,7 @@ def setup_log(config_name):
     # 为全局的日志工具对象（flask app使用的）添加日志记录器
     logging.getLogger().addHandler(file_log_handler)
 
+
 def create_app(config_name):
     # 设置日志
     setup_log(config_name)
@@ -38,9 +39,9 @@ def create_app(config_name):
     # db关联app,真正初始化
     db.init_app(app)
     # 初始化redis数据库,该数据库为保存其他需要保存在redis中的数据
-    redis_store = StrictRedis(host=config[config_name].HOST, port=config[config_name].PORT)
+    redis_store = StrictRedis(host=config[config_name].HOST, port=config[config_name].PORT, decode_responses=True)
     # 开启CSRF保护
-    CSRFProtect(app)
+    # CSRFProtect(app)
     # 设置session保存位置
     Session(app)
     # 注册蓝图

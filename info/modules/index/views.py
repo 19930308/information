@@ -12,4 +12,4 @@ def index():
 # 加载图标
 @index_blue.route('/favicon.ico')
 def favicon():
-    return current_app.send_static_file('/news/favicon.ico')
+    return current_app.send_static_file('news/favicon.ico')

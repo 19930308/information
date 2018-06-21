@@ -1,5 +1,6 @@
 from flask import Blueprint
-# 创建蓝图
-index_blue=Blueprint('index',__name__)
 
-from .views import *
+# 创建蓝图
+index_blue = Blueprint('index', __name__)
+
+from . import views
